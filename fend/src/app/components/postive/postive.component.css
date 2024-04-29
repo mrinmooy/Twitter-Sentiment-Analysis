@@ -1,0 +1,14 @@
+/* positive.component.css */
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #e8f5e9; /* light green background */
+    border-left: 5px solid #4caf50; /* green border */
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
