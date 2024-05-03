@@ -8,7 +8,7 @@ from pymysql import Error
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 aws_access_key_id = 'AKIA6GBMF4I4QCV5LOZX'
 aws_secret_access_key = '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'
