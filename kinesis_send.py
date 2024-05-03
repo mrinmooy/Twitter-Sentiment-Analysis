@@ -20,6 +20,6 @@ def send_data_to_kinesis(stream_name, data, partition_key):
 
 # Usage example
 stream_name = 'sentimentanalysis'
-data = "why is this not working this should work"
+data = "my health is bad i am sick"
 partition_key = "Ht5aIMMhsZ"
 send_data_to_kinesis(stream_name, data, partition_key)

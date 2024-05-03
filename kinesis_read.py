@@ -22,12 +22,13 @@ all_records = []
 empty_response_count = 0   
 
  
-while shard_iterator and empty_response_count < 20:
-    record_response = client.get_records(ShardIterator=shard_iterator, Limit=1)
+while shard_iterator and empty_response_count < 500:
+    record_response = client.get_records(ShardIterator=shard_iterator, Limit=1000)
     records = record_response['Records']
 
     if records:
         tweets = [base64.b64decode(record['Data']).decode('utf-8') for record in records]
+        print(tweets)
         all_records.extend(tweets)
         empty_response_count = 0  
     else:

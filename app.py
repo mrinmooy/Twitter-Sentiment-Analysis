@@ -56,8 +56,8 @@ def get_positive_tweets():
     empty_response_count = 0   
 
     
-    while shard_iterator and empty_response_count < 20:
-        record_response = client.get_records(ShardIterator=shard_iterator, Limit=1)
+    while shard_iterator and empty_response_count < 500:
+        record_response = client.get_records(ShardIterator=shard_iterator, Limit=1000)
         records = record_response['Records']
 
         if records:
@@ -92,8 +92,8 @@ def get_negative_tweets():
     empty_response_count = 0   
 
     
-    while shard_iterator and empty_response_count < 20:
-        record_response = client.get_records(ShardIterator=shard_iterator, Limit=1)
+    while shard_iterator and empty_response_count < 500:
+        record_response = client.get_records(ShardIterator=shard_iterator, Limit=1000)
         records = record_response['Records']
 
         if records:
@@ -128,6 +128,7 @@ def send_tweet():
         tweet_polarity = analysis.polarity
 
         senti = 0
+        global response
 
         if tweet_polarity >=0:
             print(0)
@@ -167,7 +168,7 @@ def send_tweet():
                 print("MySQL connection is closed")
 
 
-        return jsonify({"message": "Tweet sent to Kinesis stream"}), 200
+        return jsonify({"message": "Tweet sent to Kinesis stream", "alldetails": response}), 200
 
     else:
 
