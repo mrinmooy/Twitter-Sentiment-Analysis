@@ -12,7 +12,7 @@ export class SendTweetsComponent {
   constructor(private http: HttpClient) { }
 
   sendTweet(tweet: string, tweetInput: HTMLTextAreaElement): void {
-    const url = 'http://localhost:5000/api/tweet';
+    const url = 'https://twitter-sentiment-analysis-flask.onrender.com/api/tweet';
     this.http.post(url, { tweet }).subscribe({
       next: (response) => {
         console.log('Response:', response);

@@ -19,7 +19,7 @@ export class NegativeComponent implements OnInit {
   }
 
   loadNegativeTweets() {
-    this.http.get<string[]>('http://localhost:5000/api/negative').subscribe({
+    this.http.get<string[]>('https://twitter-sentiment-analysis-flask.onrender.com/api/negative').subscribe({
       next: (tweets) => {
         this.negativeTweets = tweets;
         this.formatTweets();

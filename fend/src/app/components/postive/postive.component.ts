@@ -19,7 +19,7 @@ export class PositiveComponent implements OnInit {
   }
 
   loadPositiveTweets() {
-    this.http.get<string[]>('http://localhost:5000/api/positive').subscribe({
+    this.http.get<string[]>('https://twitter-sentiment-analysis-flask.onrender.com/api/positive').subscribe({
       next: (tweets) => {
         this.positiveTweets = tweets;
         this.formatTweets();
