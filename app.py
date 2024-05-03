@@ -10,7 +10,21 @@ from pymysql import Error
 app = Flask(__name__)
 CORS(app)
 
-client = boto3.client('kinesis', region_name='us-east-1')
+aws_access_key_id = 'AKIA6GBMF4I4QCV5LOZX'
+aws_secret_access_key = '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'
+
+client = boto3.client(
+    'kinesis',
+    region_name='us-east-1',
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key
+)
+
+
+
+
+
+
 stream_name = 'sentimentanalysis'
 
 
